@@ -25,7 +25,7 @@ def test_coreset_outliers():
     n_cols = 2
     n_samples = n_rows // 8
 
-    cs = CoresetSampler(n_samples=n_samples, random_seed=0)
+    cs = CoresetSampler(n_samples=n_samples, device="cpu", random_seed=0)
 
     rng = np.random.default_rng(seed=0)
 
@@ -45,8 +45,8 @@ def test_coreset_determinism():
     n_cols = 2
     n_samples = n_rows // 8
 
-    cs1 = CoresetSampler(n_samples=n_samples, random_seed=4)
-    cs2 = CoresetSampler(n_samples=n_samples, random_seed=4)
+    cs1 = CoresetSampler(n_samples=n_samples, device="cpu", random_seed=4)
+    cs2 = CoresetSampler(n_samples=n_samples, device="cpu", random_seed=4)
 
     rng = np.random.default_rng(seed=0)
     x = rng.standard_normal((n_rows, n_cols))
@@ -66,7 +66,7 @@ def test_coreset_std():
     n_cols = 2
     n_samples = n_rows // 8
 
-    cs = CoresetSampler(n_samples=n_samples, random_seed=0)
+    cs = CoresetSampler(n_samples=n_samples, device="cpu", random_seed=0)
 
     rng = np.random.default_rng(seed=0)
     x = rng.standard_normal((n_rows, n_cols))
