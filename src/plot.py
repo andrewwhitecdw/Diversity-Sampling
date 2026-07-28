@@ -86,7 +86,7 @@ def plot_dbscan_results(
         min_size (int, optional): Minimum size threshold for highlighting clusters. Defaults to 100.
         tsne_params (dict, optional): t-SNE parameters. Defaults to {}.
     """
-    S = len(embeds) // 10000
+    S = max(1, len(embeds) // 10000)
 
     tsne = TSNE(n_components=2, **tsne_params)
 
@@ -121,7 +121,7 @@ def plot_coreset_results(
         min_size (int, optional): Minimum size threshold for highlighting clusters. Defaults to 100.
         tsne_params (dict, optional): t-SNE parameters. Defaults to {}.
     """
-    S = len(embeds) // 10000
+    S = max(1, len(embeds) // 10000)
 
     # Subsample
     kept_tsne = np.concatenate([np.arange(len(embeds))[::S], coreset_ids])
