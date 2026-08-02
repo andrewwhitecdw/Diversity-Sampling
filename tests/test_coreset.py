@@ -72,9 +72,11 @@ def test_coreset_std():
 
 
 def test_coreset_sample_count():
-    """Test if coreset returns exactly n_samples indices."""
+    """Test if coreset returns exactly n_samples valid indices."""
     cs = CoresetSampler(n_samples=N_SAMPLES, random_seed=0)
     x, _ = _make_data()
     cs.initialize(x)
     indices = cs.sample(x)
     assert len(indices) == N_SAMPLES
+    assert np.all(indices >= 0)
+    assert np.all(indices < N_ROWS)
