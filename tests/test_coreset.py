@@ -77,3 +77,4 @@ def test_coreset_sample_count():
     x, _ = _make_data()
     cs.initialize(x)
     indices = cs.sample(x)
+    assert len(indices) == N_SAMPLES
