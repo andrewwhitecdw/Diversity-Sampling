@@ -55,7 +55,7 @@ Coreset is most useful when you have access to a big dataset with heavy bias, an
 
 - Start by loading your embeddings matrix, and then define your sampler and its parameters:
 ```
-from coreset import CoresetSampler
+from src.coreset import CoresetSampler
 
 coreset = CoresetSampler(
     n_samples=1000,
